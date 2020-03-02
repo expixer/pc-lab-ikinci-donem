@@ -9,9 +9,9 @@ namespace _28._02._20
     class Program
 
     {//kromozom methodu, çaprazlama methodu, mutasyon methodu
-        static int[] istenengen = {1,0,0,1};
+        static int[] BEKLENEN = new int[4];
         static int iterasyon = 1;
-        static int eslesme(int[] istenen,int[] gelen) {
+        static int Eslesme(int[] istenen,int[] gelen) {
             int eslesme=1;
             for (int i = 0; i < istenen.Length; i++)
             {
@@ -51,10 +51,7 @@ namespace _28._02._20
                     cocukgen[i] = babagelen[i];
                 }
             }
-            
                 return cocukgen;
-            
-
         }
 
         static int[] Mutasyon( int[] caprazlanan) {
@@ -74,7 +71,11 @@ namespace _28._02._20
         }
         static void Main()
         {
-
+            if (iterasyon==1)
+                for (int i = 0; i < BEKLENEN.Length; i++)
+                {
+                    BEKLENEN[i] = int.Parse(Console.ReadLine());
+                }
             Console.WriteLine(iterasyon+".İterasyon");
             int[] annegen = GenOlustur();
             Console.WriteLine("Anenin Genleri "+ string.Join("", annegen));
@@ -83,7 +84,7 @@ namespace _28._02._20
             Console.WriteLine("Babanın Genleri " + string.Join("", babagen));
             int[] caprazlanangen = Caprazla(annegen, babagen);
             Console.WriteLine("Çaprazlanan Genleri " + string.Join("", caprazlanangen));
-            if (eslesme(istenengen, caprazlanangen) == 1)
+            if (Eslesme(BEKLENEN, caprazlanangen) == 1)
             {
                 Console.WriteLine("İstenen Gen Bulundu.");
             }
@@ -93,7 +94,7 @@ namespace _28._02._20
 
                 int[] songelen=Mutasyon(caprazlanangen);
                 Console.WriteLine("Mutasyon Genleri " + string.Join("", songelen));
-                if (eslesme(songelen, istenengen) == 1)
+                if (Eslesme(songelen, BEKLENEN) == 1)
                 {
                     Console.WriteLine("İstenen Gen Bulundu.");
                 }
