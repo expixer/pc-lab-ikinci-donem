@@ -57,9 +57,8 @@ namespace _28._02._20
 
         }
 
-        static int[] Mutasyon(int[] istenen, int[] caprazlanan) {
-            int[] mutasyongen = new int[4];
-
+        static int[] Mutasyon( int[] caprazlanan) {
+            int[] mutasyongen = caprazlanan;
             Random rnd = new Random();
             int rastgele=rnd.Next(0, 4);
             if (mutasyongen[rastgele]==1)
@@ -92,9 +91,9 @@ namespace _28._02._20
             {
                 Console.WriteLine("istenen gen bulunamadı.");
 
-                int[] songelen=Mutasyon(istenengen, caprazlanangen);
+                int[] songelen=Mutasyon(caprazlanangen);
                 Console.WriteLine("Mutasyon Genleri " + string.Join("", songelen));
-                if (eslesme(songelen, caprazlanangen) == 1)
+                if (eslesme(songelen, istenengen) == 1)
                 {
                     Console.WriteLine("İstenen Gen Bulundu.");
                 }
@@ -106,9 +105,6 @@ namespace _28._02._20
                     Main();
                 }
             }
-
-            
-
         }
     }
 }
