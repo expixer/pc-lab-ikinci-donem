@@ -1,0 +1,5 @@
+            //5 farklı erişim belirleyici vardır.public,private,
+            //protected sınıf türemesi yoksa private ile aynıdır.
+            //private yalnızca sınıf içinden ulaşılabilir
+            //internal bulunduğu assemblynin içinde erişilebilirdir. Dışarıdan erişilemez.
+            //protected internal 
